@@ -1,55 +1,66 @@
-# Executable Files and Compilation Code Testing
+# 可執行檔與匯編代碼測試
 
-## Overview
-This project involves several batch files and C++ programs to automate and measure the compilation and execution of different versions of a sample C++ code (`a.cpp`). The main goal is to test compilation optimization and to compare the execution times of the generated executables.
+## 概述
 
-The project includes:
-1. **Batch files** for automating compilation and execution tasks.
-2. **C++ code** for measuring execution time and managing operations.
+本專案包含多個批次檔和 C++ 程序，用於自動化並測量不同版本的示例 C++ 代碼（`a.cpp`）的編譯和執行。主要目標是測試編譯優化並比較生成的可執行文件的執行時間。
 
-## Files in the Project
+該專案包含：
 
-- **`timeCounter.cpp`**: This C++ program is responsible for executing each version of the compiled executable (`a.exe`, `aO2.exe`, `aO3.exe`, `aOfast.exe`) and measuring the time taken to run them. The execution times are then printed to the console.
+1. **批次檔** 用於自動化編譯和執行任務。
+2. **C++ 程序** 用於測量執行時間和管理操作。
 
-- **`compile_a_files.bat`**: This batch file compiles `a.cpp` into multiple executables (`a.exe`, `aO2.exe`, `aO3.exe`, `aOfast.exe`) using different optimization levels.
+## 專案中的文件
 
-- **`run_timeCounter.bat`**: This batch file compiles and runs `timeCounter.cpp`, generating `timeCounter.exe`, which then measures the execution times of all the executables.
+- **`timeCounter.cpp`**：這個 C++ 程序負責執行每個版本的已編譯可執行檔（`a.exe`、`aO2.exe`、`aO3.exe`、`aOfast.exe`），並測量它們的執行時間，結果會顯示在控制台中。
 
-- **`run_aO3.bat`**: A batch script specifically used to run the `aO3.exe` executable.
+- **`compile_a_files.bat`**：此批次檔用於將 `a.cpp` 編譯為多個版本的可執行檔（`a.exe`、`aO2.exe`、`aO3.exe`、`aOfast.exe`），每個版本使用不同的優化等級。
 
-- **`a.cpp`**: The sample C++ code used in this project, which is compiled into different executable files to test the impact of different compiler optimization levels.
+- **`run_timeCounter.bat`**：此批次檔用於編譯並運行 `timeCounter.cpp`，生成 `timeCounter.exe`，然後測量所有可執行檔的執行時間。
 
-- **`timeCounter.exe`**: The compiled version of `timeCounter.cpp`, used to measure execution times.
+- **`run_aO3.bat`**：專門用於運行 `aO3.exe` 的批次腳本。
 
-## Flowchart
-A flowchart (`可執行檔、匯編代碼測試.drawio.pdf`) is included to visually represent the relationships between different batch files, source code, and executables. It shows how each component interacts within the overall workflow.
+- **`a.cpp`**：該專案中使用的示例 C++ 代碼，會被編譯為不同版本的可執行檔，以測試不同編譯器優化級別的影響。
 
-## How to Use
+- **`timeCounter.exe`**：`timeCounter.cpp` 的已編譯版本，用於測量可執行檔的執行時間。
 
-1. **Compilation and Execution**:
-    - Run `compile_a_files.bat` to compile `a.cpp` into several versions of executables with different optimizations.
-    - Use `run_timeCounter.bat` to compile `timeCounter.cpp` and execute `timeCounter.exe`. This will time the execution of each compiled version.
+## 流程圖
 
-2. **Customization**:
-    - Modify `a.cpp` to make changes to the C++ code being tested.
-    - Adjust the batch files to include additional compilation flags or executables if required.
+專案中包含一個流程圖（`可執行檔、匯編代碼測試.drawio.pdf`），用於直觀地表示不同批次檔、源代碼和可執行檔之間的關係。該流程圖顯示了各個組件在整體工作流程中的互動方式。
 
-## Dependencies
-- **Windows OS** (as it uses Windows batch scripts and Windows-specific APIs in `timeCounter.cpp`).
-- **C++ Compiler** (such as MinGW or MSVC) to compile the C++ files.
+## 使用方法
 
-## How it Works
-- `timeCounter.cpp` uses `system()` calls to run each executable (`a.exe`, `aO2.exe`, `aO3.exe`, `aOfast.exe`) and measures the time taken using `chrono`.
-- Batch files are used to simplify the process of compiling and running different tasks.
-- Execution logs and time measurements are managed through the `storage` folder.
+1. **編譯與執行**：
 
-## Future Improvements
-- **Cross-Platform Compatibility**: Modify the C++ code and scripts to work across Linux and macOS.
-- **Improved Time Logging**: Store execution times in a text file for better record-keeping and analysis.
-- **GUI Tool**: Develop a simple GUI to run and visualize the tests.
+   - 運行 `compile_a_files.bat` 將 `a.cpp` 編譯為多個優化版本的可執行檔。
+   - 使用 `run_timeCounter.bat` 編譯 `timeCounter.cpp` 並執行 `timeCounter.exe`，這將對每個編譯版本的執行時間進行測量。
 
-## Author
+2. **自定義**：
+
+   - 修改 `a.cpp` 以對被測試的 C++ 代碼進行更改。
+   - 調整批次檔以包括其他編譯標誌或可執行檔（如有需要）。
+
+## 依賴項目
+
+- **Windows 作業系統**（因為使用了 Windows 批次腳本和 `timeCounter.cpp` 中 Windows 專用的 API）。
+- **C++ 編譯器**（例如 MinGW 或 MSVC）用於編譯 C++ 文件。
+
+## 工作原理
+
+- `timeCounter.cpp` 使用 `system()` 函數來運行每個可執行檔（`a.exe`、`aO2.exe`、`aO3.exe`、`aOfast.exe`），並使用 `chrono` 測量所需時間。
+- 批次檔簡化了編譯和運行不同任務的過程。
+- 執行日誌和時間測量結果保存在 `storage` 文件夾中。
+
+## 作者
+
 **Bo Rong, Cheng**
+
+歡迎對此專案提出改進建議或貢獻。這主要是一個學習項目，用於理解編譯和執行性能之間的差異。
+
+## 授權
+
+此專案使用 MIT 授權許可證。
+
+
 
 Feel free to contribute or suggest any improvements to this project. This is primarily a learning experience to understand compilation and execution performance differences.
 
